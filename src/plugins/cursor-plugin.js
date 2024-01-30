@@ -111,23 +111,15 @@ export const createDecorations = (
         ystate.binding.mapping
       )
       if (anchor !== null && head !== null) {
-        const maxsize = math.max(state.doc.content.size - 1, 0)
-        anchor = math.min(anchor, maxsize)
-        head = math.min(head, maxsize)
+        const maxsize = math.max(state.doc.content.size - 1, 0);
+        anchor = math.min(anchor, maxsize);
+        head = math.min(head, maxsize);
         decorations.push(
           Decoration.widget(head, () => createCursor(user), {
-            key: clientId + '',
-            side: 10
+            key: clientId + "",
+            side: 10,
           })
-        )
-        const from = math.min(anchor, head)
-        const to = math.max(anchor, head)
-        decorations.push(
-          Decoration.inline(from, to, createSelection(user), {
-            inclusiveEnd: true,
-            inclusiveStart: false
-          })
-        )
+        );
       }
     }
   })
